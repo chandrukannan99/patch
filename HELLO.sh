@@ -1,2 +1,2 @@
 echo "Hello world"
-cd /tmp; mkdir exec
+sh "cd /tmp; mkdir exec"
