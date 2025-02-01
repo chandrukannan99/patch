@@ -1,14 +1,22 @@
 pipeline {
     agent any
     parameters {
-    
+        choice(name: 'NUMBER',
+        choices: [10,20,30] )
+    }
     stages {
-        stage('Run Shell') {
+        stage('Make executable') {
             steps {
-                sh 'echo "Hello from Jenkins!"'
-                sh 
+                sh('chmod +x ./scripts/fibonacci.sh')
             }
+        }
+        stage('Change directory') {
+            
+            steps {
+                dir("${env.WORKSPACE}/scripts"){
+                    sh("sh ./fibonacci.sh ${env.NUMBER}")
+                }
+            } 
         }
     }
 }
-
