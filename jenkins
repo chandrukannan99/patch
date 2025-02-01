@@ -7,13 +7,13 @@ pipeline {
     stages {
         stage('Make executable') {
             steps {
-                sh('chmod +x ./scripts/fibonacci.sh')
+                sh('chmod +x ./script/fibonacci.sh')
             }
         }
         stage('Change directory') {
             
             steps {
-                dir("${env.WORKSPACE}/scripts"){
+                dir("${env.WORKSPACE}/script"){
                     sh("sh ./fibonacci.sh ${env.NUMBER}")
                 }
             } 
