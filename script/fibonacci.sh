@@ -10,7 +10,7 @@ fi
 n=$1
 
 # Validate the input (must be a positive integer)
-if ! [[ "$n" =~ ^[0-9]+$ ]]; then
+if ! echo "$n" | grep -qE '^[0-9]+$'; then
   echo "Error: The argument must be a positive integer."
   exit 1
 fi
